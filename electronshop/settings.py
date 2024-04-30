@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'front',
+    #'accounts',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +62,7 @@ ROOT_URLCONF = 'electronshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,6 +77,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'electronshop.wsgi.application'
 
+#AUTH_USER_MODEL = 'accounts.CustomUser'
+
+CRISPY_TEMPLATE_PACK = 'uni_form'
+
+#AUTHENTICATION_BACKENDS = [
+ #   'accounts.authentication.EmailAuthBackend',
+ #   'django.contrib.auth.backends.ModelBackend',
+    
+#]
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

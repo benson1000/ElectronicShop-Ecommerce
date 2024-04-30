@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %} Sign-up {% endblock %}
+{% block content %}
+    <div class="container-fluid" style="background-color: aliceblue; margin-top:100px;">
+        <form method="post" class="my-class">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit" class="btn btn-primary">SignUp</button>
+        </form>
+    </div>
+{% endblock %}
