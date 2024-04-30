@@ -1,30 +1,26 @@
- <!-- ======= Header ======= -->
- <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex justify-content-between">
-
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex justify-content-between">
       <div class="logo">
-        <!-- Uncomment below if you prefer to use an text logo -->
-        <h1><a href="{% url 'home' %}">Nairobi-Electronics</a></h1> 
+          <h1><a href="{% url 'home' %}">Nairobi-Electronics</a></h1> 
       </div>
 
       <nav id="navbar" class="navbar">
-        {% if request.user.is_authenticated %}
-          <ul class="navbar navbar-right">
-            <!--<li><a class="nav-link scrollto" href="{% url 'user_logout' %}">Logout</a></li>-->
-          </ul>
-        
-        {% else %}
+          {% if request.user.is_authenticated %}
+          <!-- Show logout link if user is authenticated -->
           <ul>
-            <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
-            <li><a class="nav-link scrollto" href="{% url 'about' %}">About Us</a></li>
-            <li><a class="nav-link scrollto" href="{% url 'contact' %}">Contact</a></li>
-            <li><a class="nav-link scrollto" href="#">Login</a></li>
-            <li><a class="nav-link scrollto" href="#">Sign Up</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
           </ul>
-        {% endif %}
-        
-        <i class="bi bi-list mobile-nav-toggle"></i>
+          {% else %}
+          <!-- Show other navigation links if user is not authenticated -->
+          <ul>
+              <li><a class="nav-link scrollto active" href="{% url 'home' %}">Home</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'about' %}">About Us</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'contact' %}">Contact</a></li>
+              <li><a class="nav-link scrollto" href="#">Login</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'register' %}">Sign Up</a></li>
+          </ul>
+          {% endif %}
+          <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- #header -->
+  </div>
+</header><!-- #header -->

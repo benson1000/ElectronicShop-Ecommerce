@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'front',
-    #'accounts',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -77,27 +77,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'electronshop.wsgi.application'
 
-#AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = 'accounts.User'
 
 CRISPY_TEMPLATE_PACK = 'uni_form'
 
-#AUTHENTICATION_BACKENDS = [
- #   'accounts.authentication.EmailAuthBackend',
- #   'django.contrib.auth.backends.ModelBackend',
+AUTHENTICATION_BACKENDS = [
+    'accounts.authentication.EmailAuthBackend',
+    'django.contrib.auth.backends.ModelBackend',
     
-#]
+]
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv("POSTGRES_DATABASE_NAME"),
-        'USER': os.getenv("POSTGRES_USER"),
-        'PASSWORD': os.getenv("POSTGRES_PASSWORD"),
-        'HOST': os.getenv("POSTGRES_SERVER"),
-        'PORT': os.getenv("POSTGRES_PORT")
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
